@@ -1,11 +1,11 @@
 .button {
-    width: 10px;
-    height: 5px;
+    width: 100px;
+    height: 50px;
     color: black;
     border: greenyellow;
     align-self: center;
     font: "Bubblegum Sans";
-    font-size: 5px;
+    font-size: 20px;
 }
 
 .form {
