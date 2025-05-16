@@ -1,0 +1,50 @@
+<html>
+    
+
+
+<head>
+
+  <meta charset="UTF-8">
+      
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Google Translator</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Imperial+Script&family=Linefont:wght@4..1000&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+
+
+<link rel="stylesheet" href="file:///C:/Users/skitt/.vscode/google_translator/styles.css">
+
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<script src="C://Users/skitt/.vscode/google_translator/google_translator_updated.py"></script>
+
+ 
+<form id="translate_entry">
+    <label for="translate_entry">Translate:</label></br>
+    <textarea id="translate_entry" rows="4" cols="40" placeholder="bozo you havent typed anything"></textarea></br></br>
+    <button class="button" type="button" id="translateButton">Press</button>
+</form>
+<form id="iterations">
+  <label for="iterations">Number of iterations:</label></br>
+  <textarea id="iterations" rows="1" cols="2" placeholder="100"></textarea></br>
+</form>
+
+<script>  
+    document.getElementById("translateButton").onclick = async () => {  
+      const inputText = document.getElementById("translate_entry").value;  
+      const inputIterations = document.getElementById("iterations").value;
+      const response = await fetch('/translate_text', {  
+        method: 'POST',  
+        headers: {'Content-Type': 'application/json'},  
+        body: JSON.stringify({text: inputText, iterations: inputIterations})  
+      });  
+      const data = await response.json();  
+      document.getElementById("translate_entry").innerText = data.translated_text;  
+    };  
+  </script>    
+</html>

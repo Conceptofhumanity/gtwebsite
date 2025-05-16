@@ -1,0 +1,19 @@
+.button {
+    width: 10px;
+    height: 5px;
+    color: black;
+    border: greenyellow;
+    align-self: center;
+    font: "Bubblegum Sans";
+    font-size: 5px;
+}
+
+.form {
+    width: auto;
+    height: auto;
+    color:beige;
+    border: grey;
+    align-self: center;
+}
+
+
