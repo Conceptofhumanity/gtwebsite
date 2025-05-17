@@ -11,11 +11,11 @@ hello this is a lot of text a large amount of text to translate so it'll actuall
 """
 app = Flask(__name__)
 
-@app.route('/translate', methods=['POST'])  
+@app.route('/translate_text', methods=['POST'])  
 
 def translate_text():  
     #nabs the text from the website, yk request.get dunno what json is about
-    text = request.json.get('text', '')  
+    text = request.json.get('text')  
     result = translate(text['text'], text['iterations'])  
     return jsonify({"translated_text": result})  
 
