@@ -37,6 +37,8 @@
 
 <script>  
     document.getElementById("translateButton").onclick = async () => {  
+    const button = document.getElementById("translateButton")
+      button.textContent = "Translating..." 
       const inputText = document.getElementById("translate_entry").value;  
       const inputIterations = document.getElementById("iterations").value;
       const response = await fetch('/translate_text', {  
