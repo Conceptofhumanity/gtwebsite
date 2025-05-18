@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
     
-
-
 <head>
 
   <meta charset="UTF-8">
@@ -14,15 +12,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Imperial+Script&family=Linefont:wght@4..1000&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    <script src="google_translator_updated.py"></script>
+  
+  <link rel="stylesheet" href="file:///C:/Users/skitt/.vscode/google_translator/styles.css">
+
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
 
 </head>
 
 
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<script src="C://Users/skitt/.vscode/google_translator/google_translator_updated.py"></script>
 
  
 <form id="translate_entry">
@@ -35,18 +34,21 @@
   <textarea id="iterations" rows="1" cols="2" placeholder="100"></textarea></br>
 </form>
 
-<script>  
-    document.getElementById("translateButton").onclick = async () => {  
+<script> 
     const button = document.getElementById("translateButton")
+    button.onclick = async () => {  
       button.textContent = "Translating..." 
       const inputText = document.getElementById("translate_entry").value;  
       const inputIterations = document.getElementById("iterations").value;
-      const response = await fetch('/translate_text', {  
+      const response = await fetch('/translate', {  
         method: 'POST',  
         headers: {'Content-Type': 'application/json'},  
         body: JSON.stringify({text: inputText, iterations: inputIterations})  
       });  
       const data = await response.json();  
-      document.getElementById("translate_entry").innerText = data.translated_text;  
+      button.textContent = "Done! :)"
+      document.getElementById("translate_entry").value = data.translated_text; 
+      
     };  
-  </script>    
+</script>    
+</html>
